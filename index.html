@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Gilmar</title>
+<style>
+:root {
+  --text-color-primary: #fff0bf;
+  --text-color-secondary: #d6b96b;
+  --text-color-tertiary: #a77a19;
+  --background-color-primary: #100900;
+  --surface-color-primary: #211400;
+  --surface-color-secondary: #1a1000;
+  --surface-color-hover: #ffb000;
+  --text-color-primary-hover: #14100b;
+  --text-color-secondary-hover: #14100b;
+  font-size: 17px;
+}
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: var(--background-color-primary);
+  background-image: radial-gradient(ellipse 90% 55% at 50% -10%, rgba(255,176,0,.22) 0, rgba(0,0,0,0) 60%);
+  color: var(--text-color-primary);
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+a { color: var(--text-color-secondary); }
+a:active, a:focus { outline: 0; border: none; }
+h1.text-center {
+  color: #fff0bf;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0,0,0,.8);
+  margin-bottom: 2px;
+}
+#top-bar-text {
+  color: #ffb000;
+  font-size: .85rem;
+  letter-spacing: .5px;
+}
+#top-bar-text .fw-bold { color: #fff0bf; }
+.btn {
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: .2rem;
+  cursor: pointer;
+  line-height: 2.5rem;
+  min-width: 5rem;
+  border-radius: 12px;
+  width: 50%;
+  background-color: var(--surface-color-primary);
+  background-image: linear-gradient(180deg, #ffb000 0%, #d88900 100%);
+  border: none;
+  color: #14100b;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: background-color .25s ease, box-shadow .25s ease;
+  box-shadow: 0 6px 18px rgba(255,176,0,.25), inset 0 1px 0 rgba(255,255,255,.25);
+  box-sizing: border-box;
+}
+.btn:hover, .btn:focus {
+  background-color: var(--surface-color-hover);
+  color: var(--text-color-primary-hover);
+  box-shadow: 0 6px 24px rgba(255,176,0,.5), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.btn-secondary {
+  padding: .5rem 2rem;
+  font-size: 1rem;
+  background-image: none;
+  background-color: rgba(255,255,255,.05);
+  color: #ffe5a0;
+  border: 1px solid rgba(255,176,0,.45);
+  box-shadow: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+  background-color: rgba(255,176,0,.14);
+  color: #ffbf00;
+}
+#main-content { position: relative; box-sizing: border-box; }
+#main-content > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease-in-out;
+  box-sizing: border-box;
+  display: flex;
+}
+#pre-jb-view {
+  display: block !important;
+  padding-top: 18vh;
+  text-align: center;
+}
+#pre-jb-view .btn {
+  display: block;
+  width: 70%;
+  max-width: none;
+  margin: .5rem auto;
+}
+.selected { opacity: 1 !important; pointer-events: auto !important; }
+.position-relative { position: relative; }
+.text-center { text-align: center; }
+.fw-bold { font-weight: 800; }
+.text-secondary {
+  color: var(--text-color-secondary);
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: .8rem;
+}
+.p-2 { padding: .5rem !important; }
+.mt-2 { margin-top: .5rem !important; }
+.mb-2 { margin-bottom: .5rem !important; }
+</style>
+</head>
+<body>
+  <div class="p-2">
+        <h1 class="text-center">Gilmar</h1>
+	<p class="text-center" style="color:#a77a19;font-size:.75rem;letter-spacing:1px;margin:0;">Relapse (7.00 - 13.60)</p>
+  </div>
+  <div id="main-content">
+    <div id="pre-jb-view" class="selected">
+      <a tabindex="0" class="btn fw-bold" id="run-jb" href="relapse.html">ATIVAR DESTRAVE</a>
+      <a tabindex="0" class="btn btn-secondary" id="run-sender" href="relapse.html?senderok=1">ENVIAR CARGAS AVULSAS</a>
+    </div>
+  </div>
+    <script>
+    try {
+      var firmwareMatch = /PlayStation 5\/(\d+\.\d+)/.exec(navigator.userAgent);
+      var firmware = firmwareMatch ? firmwareMatch[1] : "";
+      document.getElementById("current-fw").textContent = firmware || "Not detected";
+    } catch (e) { }
+    try { document.getElementById("run-jb").focus(); } catch (e) { }
+  </script>
+</body>
+</html>
